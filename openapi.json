@@ -1,0 +1,42 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Thought Fetcher API",
+    "version": "1.0.0",
+    "description": "Fetches a JSON value representing what the user is thinking."
+  },
+  "paths": {
+    "/fetch": {
+      "get": {
+        "operationId": "fetchThought",
+        "summary": "Fetch the current thought value",
+        "description": "Calls the hosted API and returns a JSON object containing a 'value' field.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "string",
+                      "description": "The thought value"
+                    }
+                  },
+                  "required": ["value"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://fetch-la1o.onrender.com",
+      "description": "Live Render instance"
+    }
+  ]
+}
